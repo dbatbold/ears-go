@@ -3,5 +3,10 @@
 		"name": "piper-tts",
 		"url": "https://github.com/rhasspy/piper/releases/latest",
 		"location": "https://github.com/rhasspy/piper/releases/tag/2023.11.14-2"
+	},
+	{
+		"name": "piper-voice-amy",
+		"url": "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_US/amy/medium/en_US-amy-medium.onnx",
+		"etag": "\"1d703b260d0732739ed941fead81f4514b91a79e\""
 	}
 ]

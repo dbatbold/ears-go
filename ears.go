@@ -36,8 +36,8 @@ func run() {
 		if err != nil {
 			panic(err)
 		}
-		req.Header.Set("accept", "*/*")
-		req.Header.Set("User-Agent", "curl/8.7.1")
+		// req.Header.Set("accept", "*/*")
+		// req.Header.Set("User-Agent", "curl/8.7.1")
 		res, err := client.Do(req)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "HEAD request failed '%s': HTTP %s\n", monitor.Url, res.StatusCode)
@@ -55,6 +55,14 @@ func run() {
 				fmt.Println("\t" + location)
 			}
 		}
+		if len(monitor.Etag) > 0 {
+			etag := res.Header.Get("etag")
+			if etag != monitor.Etag {
+				fmt.Println(monitor.Name + ":")
+				fmt.Println("\t" + monitor.Etag)
+				fmt.Println("\t" + etag)
+			}
+		}
 	}
 
 }
@@ -63,4 +71,5 @@ type Monitor struct {
 	Name     string `json:"name"`
 	Url      string `json:"url"`
 	Location string `json:"location"`
+	Etag     string `json:"etag"`
 }

@@ -1,7 +1,7 @@
 [
-{
-	"name": "piper-tts",
-	"url": "https://github.com/rhasspy/piper/releases/latest",
-	"location": "https://github.com/rhasspy/piper/releases/tag/2023.11.14-2"
-}
+	{
+		"name": "piper-tts",
+		"url": "https://github.com/rhasspy/piper/releases/latest",
+		"location": "https://github.com/rhasspy/piper/releases/tag/2023.11.14-2"
+	}
 ]

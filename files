@@ -1,6 +1,7 @@
-[   42]  ./
+[   66]  ./
 [ 1.2K]  ./ears.go
 [  164]  ./ears.json
 [    0]  ./files
+[   42]  ./Makefile
 
-1 directory, 3 files
+24 directories, 35 files

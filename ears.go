@@ -2,14 +2,21 @@ package main
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"os"
+	"time"
 )
 
 func main() {
+	for {
+		run()
+		time.Sleep(time.Hour)
+	}
+}
 
+func run() {
 	earsJson, err := ioutil.ReadFile("ears.json")
 	if err != nil {
 		panic(err)
@@ -49,11 +56,11 @@ func main() {
 			}
 		}
 	}
-	
+
 }
 
 type Monitor struct {
-	Name string `json:"name"`
-	Url string `json:"url"`
+	Name     string `json:"name"`
+	Url      string `json:"url"`
 	Location string `json:"location"`
 }

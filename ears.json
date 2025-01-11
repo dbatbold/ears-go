@@ -16,13 +16,13 @@
 	},
 	{
 		"name": "asuswrt-merlin",
-		"url": "https://www.asuswrt-merlin.net/download",
-		"last_modified": "Tue, 31 Dec 2024 06:06:42 GMT"
+		"url": "https://sourceforge.net/projects/asuswrt-merlin/rss?path=/RT-AX58U/Release",
+		"content_length": "30267"
 	},
 	{
 		"name": "freebsd-news-flash",
-		"url": "https://www.freebsd.org/news/newsflash/",
-		"etag": "W/\"67829f5a-38669\""
+		"url": "https://www.freebsd.org/news/feed.xml",
+		"content_length": "20654"
 	},
 	{
 		"name": "matterircd",

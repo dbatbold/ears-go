@@ -88,6 +88,12 @@ func run() {
 				monitor.print(location)
 			}
 		}
+		if len(monitor.ContentLength) > 0 {
+			length := res.Header.Get("content-length")
+			if length != monitor.ContentLength {
+				monitor.print(length)
+			}
+		}
 	}
 
 }
@@ -99,6 +105,7 @@ type Monitor struct {
 	Etag         string `json:"etag"`
 	LastModified string `json:"last_modified"`
 	Redirect     string `json:"redirect"`
+	ContentLength     string `json:"content_length"`
 }
 
 func (m *Monitor) print(diff string) {
@@ -107,6 +114,11 @@ func (m *Monitor) print(diff string) {
 	}
 	now := time.Now()
 	fmt.Println(now.Format(time.RFC3339), m.Name, m.Url)
+	if len(m.Etag) > 0 {
+		fmt.Println("\t" + m.Etag)
+		fmt.Println("\t" + diff)
+		notified[m.Url] = true
+	}
 	if len(m.Redirect) > 0 {
 		fmt.Println("\t" + m.Redirect)
 		fmt.Println("\t" + diff)
@@ -119,6 +131,11 @@ func (m *Monitor) print(diff string) {
 	}
 	if len(m.Location) > 0 {
 		fmt.Println("\t" + m.Location)
+		fmt.Println("\t" + diff)
+		notified[m.Url] = true
+	}
+	if len(m.ContentLength) > 0 {
+		fmt.Println("\t" + m.ContentLength)
 		fmt.Println("\t" + diff)
 		notified[m.Url] = true
 	}

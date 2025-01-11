@@ -8,5 +8,26 @@
 		"name": "piper-voice-amy",
 		"url": "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_US/amy/medium/en_US-amy-medium.onnx",
 		"etag": "\"1d703b260d0732739ed941fead81f4514b91a79e\""
+	},
+	{
+		"name": "alpine-linux-news",
+		"url": "https://alpinelinux.org/atom.xml",
+		"last_modified": "Wed, 08 Jan 2025 13:59:51 GMT"
+	},
+	{
+		"name": "asuswrt-merlin",
+		"url": "https://www.asuswrt-merlin.net/download",
+		"last_modified": "Tue, 31 Dec 2024 06:06:42 GMT"
+	},
+	{
+		"name": "freebsd-news-flash",
+		"url": "https://www.freebsd.org/news/newsflash/",
+		"etag": "W/\"67829f5a-38669\""
+	},
+	{
+		"name": "matterircd",
+		"url": "https://github.com/42wim/matterircd/releases/latest",
+		"redirect": "https://github.com/42wim/matterircd/releases/tag/v0.28.0"
 	}
+	
 ]

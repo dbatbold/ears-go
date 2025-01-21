@@ -10,18 +10,19 @@ import (
 )
 
 var (
-	notified = map[string]bool{}
+	notified map[string]bool
 )
 
 func main() {
-	date := time.Now()
+	var day int
 	for {
+		now := time.Now()
+		if day != now.Day() {
+			notified = map[string]bool{}
+			day = now.Day()
+		}
 		run()
 		time.Sleep(time.Hour)
-		if date.Day() != time.Now().Day() {
-			notified = map[string]bool{}
-			date = time.Now()
-		}
 	}
 }
 
@@ -56,10 +57,11 @@ func run() {
 		// req.Header.Set("User-Agent", "curl/8.7.1")
 		res, err := client.Do(req)
 		if err != nil {
+			now := time.Now()
 			if res != nil {
-				fmt.Fprintf(os.Stderr, "HEAD request failed '%s': HTTP %s\n", monitor.Url, res.StatusCode)
+				fmt.Fprintf(os.Stderr, "%s HEAD request failed '%s': HTTP %s\n", now, monitor.Url, res.StatusCode)
 			} else {
-				fmt.Fprintf(os.Stderr, "HEAD request failed '%s'\n", monitor.Url)
+				fmt.Fprintf(os.Stderr, "%s HEAD request failed '%s'\n", now, monitor.Url)
 			}
 			continue
 		}
@@ -82,12 +84,6 @@ func run() {
 				monitor.print(modified)
 			}
 		}
-		if len(monitor.Redirect) > 0 {
-			location := res.Header.Get("location")
-			if location != monitor.Redirect {
-				monitor.print(location)
-			}
-		}
 		if len(monitor.ContentLength) > 0 {
 			length := res.Header.Get("content-length")
 			if length != monitor.ContentLength {
@@ -99,13 +95,12 @@ func run() {
 }
 
 type Monitor struct {
-	Name         string `json:"name"`
-	Url          string `json:"url"`
-	Location     string `json:"location"`
-	Etag         string `json:"etag"`
-	LastModified string `json:"last_modified"`
-	Redirect     string `json:"redirect"`
-	ContentLength     string `json:"content_length"`
+	Name          string `json:"name"`
+	Url           string `json:"url"`
+	Location      string `json:"location"`
+	Etag          string `json:"etag"`
+	LastModified  string `json:"last_modified"`
+	ContentLength string `json:"content_length"`
 }
 
 func (m *Monitor) print(diff string) {
@@ -116,27 +111,16 @@ func (m *Monitor) print(diff string) {
 	fmt.Println(now.Format(time.RFC3339), m.Name, m.Url)
 	if len(m.Etag) > 0 {
 		fmt.Println("\t" + m.Etag)
-		fmt.Println("\t" + diff)
-		notified[m.Url] = true
-	}
-	if len(m.Redirect) > 0 {
-		fmt.Println("\t" + m.Redirect)
-		fmt.Println("\t" + diff)
-		notified[m.Url] = true
 	}
 	if len(m.LastModified) > 0 {
 		fmt.Println("\t" + m.LastModified)
-		fmt.Println("\t" + diff)
-		notified[m.Url] = true
 	}
 	if len(m.Location) > 0 {
 		fmt.Println("\t" + m.Location)
-		fmt.Println("\t" + diff)
-		notified[m.Url] = true
 	}
 	if len(m.ContentLength) > 0 {
 		fmt.Println("\t" + m.ContentLength)
-		fmt.Println("\t" + diff)
-		notified[m.Url] = true
 	}
+	fmt.Println("\t" + diff)
+	notified[m.Url] = true
 }

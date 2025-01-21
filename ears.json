@@ -5,6 +5,11 @@
 		"location": "https://github.com/rhasspy/piper/releases/tag/2023.11.14-2"
 	},
 	{
+		"name": "matterircd",
+		"url": "https://github.com/42wim/matterircd/releases/latest",
+		"location": "https://github.com/42wim/matterircd/releases/tag/v0.28.0"
+	},
+	{
 		"name": "piper-voice-amy",
 		"url": "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_US/amy/medium/en_US-amy-medium.onnx",
 		"etag": "\"1d703b260d0732739ed941fead81f4514b91a79e\""
@@ -22,12 +27,6 @@
 	{
 		"name": "freebsd-news-flash",
 		"url": "https://www.freebsd.org/news/feed.xml",
-		"content_length": "20654"
-	},
-	{
-		"name": "matterircd",
-		"url": "https://github.com/42wim/matterircd/releases/latest",
-		"redirect": "https://github.com/42wim/matterircd/releases/tag/v0.28.0"
+		"content_length": "20322"
 	}
-	
 ]

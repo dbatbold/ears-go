@@ -17,16 +17,24 @@
 	{
 		"name": "alpine-linux-news",
 		"url": "https://alpinelinux.org/atom.xml",
-		"last_modified": "Wed, 08 Jan 2025 13:59:51 GMT"
+		"visit": "https://www.alpinelinux.org/posts/",
+		"last_modified": "Thu, 30 Jan 2025 14:35:12 GMT"
 	},
 	{
 		"name": "asuswrt-merlin",
 		"url": "https://sourceforge.net/projects/asuswrt-merlin/rss?path=/RT-AX58U/Release",
+		"visit": "https://sourceforge.net/projects/asuswrt-merlin/files/RT-AX58U/Release/",
 		"content_length": "30267"
 	},
 	{
 		"name": "freebsd-news-flash",
 		"url": "https://www.freebsd.org/news/feed.xml",
-		"content_length": "20322"
+		"visit": "https://www.freebsd.org/news/newsflash/",
+		"content_length": "20199"
+	},
+	{
+		"name": "debian-news",
+		"url": "https://www.debian.org/News/",
+		"etag": "\"2a81-62c17784a7c0b\""
 	}
 ]

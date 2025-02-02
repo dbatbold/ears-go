@@ -97,6 +97,7 @@ func run() {
 type Monitor struct {
 	Name          string `json:"name"`
 	Url           string `json:"url"`
+	Visit         string `json:"visit"`
 	Location      string `json:"location"`
 	Etag          string `json:"etag"`
 	LastModified  string `json:"last_modified"`
@@ -108,7 +109,11 @@ func (m *Monitor) print(diff string) {
 		return
 	}
 	now := time.Now()
-	fmt.Println(now.Format(time.RFC3339), m.Name, m.Url)
+	fmt.Println(now.Format(time.RFC3339), m.Name)
+	fmt.Println("\t", m.Url)
+	if len(m.Visit) > 0 {
+		fmt.Println("\t", m.Visit)
+	}
 	if len(m.Etag) > 0 {
 		fmt.Println("\t" + m.Etag)
 	}

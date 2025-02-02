@@ -36,5 +36,10 @@
 		"name": "debian-news",
 		"url": "https://www.debian.org/News/",
 		"etag": "\"2a81-62c17784a7c0b\""
+	},
+	{
+		"name": "ollama-release",
+		"url": "https://github.com/ollama/ollama/releases/latest",
+		"location": "https://github.com/ollama/ollama/releases/tag/v0.5.7"
 	}
 ]

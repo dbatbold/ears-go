@@ -15,14 +15,13 @@ var (
 
 func main() {
 	var day int
-	for {
-		now := time.Now()
+	ticker := time.NewTicker(time.Hour)
+	for now := range ticker.C {
 		if day != now.Day() {
 			notified = map[string]bool{}
 			day = now.Day()
 		}
 		run()
-		time.Sleep(time.Hour)
 	}
 }
 
@@ -65,10 +64,6 @@ func run() {
 			}
 			continue
 		}
-		// fmt.Println(res.StatusCode)
-		// for k, h := range res.Header {
-		// 	fmt.Println(k, h)
-		// }
 		if len(monitor.Location) > 0 {
 			location := res.Header.Get("Location")
 			if location != monitor.Location {

@@ -14,7 +14,8 @@
 	{
 		"name": "piper-voice-amy",
 		"url": "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_US/amy/medium/en_US-amy-medium.onnx",
-		"etag": "\"1d703b260d0732739ed941fead81f4514b91a79e\""
+		"etag": "\"1d703b260d0732739ed941fead81f4514b91a79e\"",
+		"status": 304
 	},
 	{
 		"name": "alpine-linux-news",
@@ -37,7 +38,8 @@
 	{
 		"name": "debian-news",
 		"url": "https://www.debian.org/News/",
-		"etag": "\"2a81-62c17784a7c0b\""
+		"etag": "\"2a81-62c17784a7c0b\"",
+		"status": 304
 	},
 	{
 		"name": "ollama-release",

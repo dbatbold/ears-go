@@ -65,7 +65,10 @@ func run() {
 			}
 			continue
 		}
-		if monitor.Status != 0 && monitor.Status != res.StatusCode {
+		if monitor.Status == 0 {
+			monitor.Status = 200
+		}
+		if monitor.Status != res.StatusCode {
 			fmt.Println(time.Now().Format(time.RFC3339), monitor.Name)
 			fmt.Println("\t", monitor.Url)
 			fmt.Println("\t", "HTTP Status Code", res.StatusCode)

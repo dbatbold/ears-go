@@ -2,12 +2,14 @@
 	{
 		"name": "piper-tts",
 		"url": "https://github.com/rhasspy/piper/releases/latest",
-		"location": "https://github.com/rhasspy/piper/releases/tag/2023.11.14-2"
+		"location": "https://github.com/rhasspy/piper/releases/tag/2023.11.14-2",
+		"status": 302
 	},
 	{
 		"name": "matterircd",
 		"url": "https://github.com/42wim/matterircd/releases/latest",
-		"location": "https://github.com/42wim/matterircd/releases/tag/v0.28.0"
+		"location": "https://github.com/42wim/matterircd/releases/tag/v0.28.0",
+		"status": 302
 	},
 	{
 		"name": "piper-voice-amy",
@@ -40,6 +42,7 @@
 	{
 		"name": "ollama-release",
 		"url": "https://github.com/ollama/ollama/releases/latest",
-		"location": "https://github.com/ollama/ollama/releases/tag/v0.5.7"
+		"location": "https://github.com/ollama/ollama/releases/tag/v0.5.7",
+		"status": 302
 	}
 ]

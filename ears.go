@@ -15,13 +15,14 @@ var (
 
 func main() {
 	var day int
-	ticker := time.NewTicker(time.Hour)
-	for now := range ticker.C {
+	for {
+		now := time.Now()
 		if day != now.Day() {
 			notified = map[string]bool{}
 			day = now.Day()
 		}
 		run()
+		time.Sleep(time.Hour)
 	}
 }
 
@@ -64,6 +65,12 @@ func run() {
 			}
 			continue
 		}
+		if monitor.Status != 0 && monitor.Status != res.StatusCode {
+			fmt.Println(time.Now().Format(time.RFC3339), monitor.Name)
+			fmt.Println("\t", monitor.Url)
+			fmt.Println("\t", "HTTP Status Code", res.StatusCode)
+			continue
+		}
 		if len(monitor.Location) > 0 {
 			location := res.Header.Get("Location")
 			if location != monitor.Location {
@@ -92,6 +99,7 @@ func run() {
 type Monitor struct {
 	Name          string `json:"name"`
 	Url           string `json:"url"`
+	Status        int    `json:"status"`
 	Visit         string `json:"visit"`
 	Location      string `json:"location"`
 	Etag          string `json:"etag"`
@@ -110,17 +118,17 @@ func (m *Monitor) print(diff string) {
 		fmt.Println("\t", m.Visit)
 	}
 	if len(m.Etag) > 0 {
-		fmt.Println("\t" + m.Etag)
+		fmt.Println("\t", m.Etag)
 	}
 	if len(m.LastModified) > 0 {
-		fmt.Println("\t" + m.LastModified)
+		fmt.Println("\t", m.LastModified)
 	}
 	if len(m.Location) > 0 {
-		fmt.Println("\t" + m.Location)
+		fmt.Println("\t", m.Location)
 	}
 	if len(m.ContentLength) > 0 {
-		fmt.Println("\t" + m.ContentLength)
+		fmt.Println("\t", m.ContentLength)
 	}
-	fmt.Println("\t" + diff)
+	fmt.Println("\t", diff)
 	notified[m.Url] = true
 }

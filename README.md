@@ -3,6 +3,6 @@
 
 ## Building and running the tool
 ```sh
-$ make
+$ go build ears.go
 $ ./ears &  # runs in background
 ```

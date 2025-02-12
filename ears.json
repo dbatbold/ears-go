@@ -14,14 +14,13 @@
 	{
 		"name": "piper-voice-amy",
 		"url": "https://huggingface.co/rhasspy/piper-voices/raw/main/en/en_US/amy/medium/en_US-amy-medium.onnx",
-		"etag": "\"1d703b260d0732739ed941fead81f4514b91a79e\"",
-		"status": 304
+		"etag": "\"1d703b260d0732739ed941fead81f4514b91a79e\""
 	},
 	{
 		"name": "alpine-linux-news",
 		"url": "https://alpinelinux.org/atom.xml",
 		"visit": "https://www.alpinelinux.org/posts/",
-		"last_modified": "Thu, 30 Jan 2025 14:35:12 GMT"
+		"last_modified": "Mon, 03 Feb 2025 17:09:06 GMT"
 	},
 	{
 		"name": "asuswrt-merlin",
@@ -33,13 +32,12 @@
 		"name": "freebsd-news-flash",
 		"url": "https://www.freebsd.org/news/feed.xml",
 		"visit": "https://www.freebsd.org/news/newsflash/",
-		"content_length": "20199"
+		"content_length": "20541"
 	},
 	{
 		"name": "debian-news",
 		"url": "https://www.debian.org/News/",
-		"etag": "\"2a81-62c17784a7c0b\"",
-		"status": 304
+		"etag": "\"2a81-62c17784a7c0b\""
 	},
 	{
 		"name": "ollama-release",

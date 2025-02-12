@@ -65,23 +65,27 @@ func run() {
 			}
 			continue
 		}
+		if len(monitor.Etag) > 0 {
+			if res.StatusCode != http.StatusNotModified {
+				monitor.print(res.Header.Get("etag"))
+			} else {
+				continue
+			}
+		}
 		if monitor.Status == 0 {
 			monitor.Status = 200
+		}
+		if len(monitor.Location) > 0 {
+			location := res.Header.Get("Location")
+			if http.StatusNotModified != res.StatusCode && location != monitor.Location {
+				monitor.print(location)
+			}
 		}
 		if monitor.Status != res.StatusCode {
 			fmt.Println(time.Now().Format(time.RFC3339), monitor.Name)
 			fmt.Println("\t", monitor.Url)
 			fmt.Println("\t", "HTTP Status Code", res.StatusCode)
 			continue
-		}
-		if len(monitor.Location) > 0 {
-			location := res.Header.Get("Location")
-			if location != monitor.Location {
-				monitor.print(location)
-			}
-		}
-		if len(monitor.Etag) > 0 && res.StatusCode != http.StatusNotModified {
-			monitor.print(res.Header.Get("etag"))
 		}
 		if len(monitor.LastModified) > 0 {
 			modified := res.Header.Get("last-modified")
@@ -132,6 +136,6 @@ func (m *Monitor) print(diff string) {
 	if len(m.ContentLength) > 0 {
 		fmt.Println("\t", m.ContentLength)
 	}
-	fmt.Println("\t", diff)
+	fmt.Println("\a\t", diff)
 	notified[m.Url] = true
 }
